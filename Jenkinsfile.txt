@@ -20,6 +20,16 @@ pipeline {
 
                 }
             }
+            post {
+                always {
+                    emailext(
+                        to: 'thrushagunasekara100gmail@gmail.com',
+                        subject: "Jenkins Pipeline: Unit and Integration Tests - ${currentBuild.fullDisplayName}",
+                        body: "The Security Scan stage ${currentBuild.result}. Please find the logs attached.",
+                        attachLog: true
+                    )
+                }
+            }
         }
 
         stage('Code Analysis') {
@@ -38,6 +48,17 @@ pipeline {
                     echo 'Use and monitor ELK Kibana for code vulnerability scan results'
                 }
             }
+            post {
+                always {
+                    emailext(
+                        to: 'thrushagunasekara100gmail@gmail.com',
+                        subject: "Jenkins Pipeline: Security Scan - ${currentBuild.fullDisplayName}",
+                        body: "The Security Scan stage ${currentBuild.result}. Please find the logs attached.",
+                        attachLog: true
+                    )
+                }
+            }
+            
         }
 
         stage('Deploy to Staging') {
