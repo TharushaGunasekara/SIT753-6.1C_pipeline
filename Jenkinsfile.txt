@@ -16,7 +16,6 @@ pipeline {
             steps {
                 script {
                     echo 'Running unit and integration tests'
-                    echo 'Running unit and integration tests'
                     echo 'Use JUnit for unit tests and Katalon for integration tests'
 
                 }
