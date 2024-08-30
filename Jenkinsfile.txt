@@ -23,7 +23,7 @@ pipeline {
             post {
                 success {
                     mail to: 'tharushagunasekara100@gmail.com',
-                    subject: "Jenkins Pipeline: Unit and Integration",
+                    subject: "Jenkins Pipeline: Unit and Integration Tests",
                     body: "The Unit and Integration Tests stage is successfull."
                 }
             }
