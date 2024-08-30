@@ -24,7 +24,7 @@ pipeline {
                 success {
                     mail to: 'tharushagunasekara100@gmail.com',
                     subject: "Jenkins Pipeline: Unit and Integration Tests",
-                    body: "The Security Scan stage is successfull."
+                    body: "The Unit and Integration Tests stage is successfull."
                 }
             }
         }
@@ -46,13 +46,10 @@ pipeline {
                 }
             }
             post {
-                always {
-                    emailext(
-                        to: 'tharushagunasekara100@gmail.com',
-                        subject: "Jenkins Pipeline: Security Scan - ${currentBuild.fullDisplayName}",
-                        body: "The Security Scan stage ${currentBuild.result}. Please find the logs attached.",
-                        attachLog: true
-                    )
+                success {
+                    mail to: 'tharushagunasekara100@gmail.com',
+                    subject: "Jenkins Pipeline: Security Scan",
+                    body: "The Security Scan stage is successfull."
                 }
             }
             
@@ -61,7 +58,7 @@ pipeline {
         stage('Deploy to Staging') {
             steps {
                 script {
-                    echo 'Deploying to staging environment '
+                    echo 'Deploying to staging environment'
                     echo 'Deploy to Kubernetes staging environment'
                 }
             }
