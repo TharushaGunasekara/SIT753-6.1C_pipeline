@@ -24,7 +24,7 @@ pipeline {
                 success {
                     mail to: 'tharushagunasekara100@gmail.com',
                     subject: "Jenkins Pipeline: Unit and Integration Tests",
-                    body: "The Security Scan stage is successfull.",
+                    body: "The Security Scan stage is successfull."
                 }
             }
         }
