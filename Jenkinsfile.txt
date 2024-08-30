@@ -6,6 +6,8 @@ pipeline {
             steps {
                 script {
                     echo 'Building the project'
+                    echo 'Use maven to build the project'
+
                 }
             }
         }
@@ -14,6 +16,8 @@ pipeline {
             steps {
                 script {
                     echo 'Running unit and integration tests'
+                    echo 'Use JUnit for unit tests and Katalon for integration tests'
+
                 }
             }
         }
@@ -22,6 +26,7 @@ pipeline {
             steps {
                 script {
                     echo 'Performing code analysis'
+                    echo 'Use SonarQube for code analysis'
                 }
             }
         }
@@ -30,6 +35,7 @@ pipeline {
             steps {
                 script {
                     echo 'Running security scan'
+                    echo 'Use and monitor ELK Kibana for code vulnerability scan results'
                 }
             }
         }
@@ -37,7 +43,8 @@ pipeline {
         stage('Deploy to Staging') {
             steps {
                 script {
-                    echo 'Deploying to staging'
+                    echo 'Deploying to staging environment'
+                    echo 'Deploy to Kubernetes staging environment'
                 }
             }
         }
@@ -45,7 +52,8 @@ pipeline {
         stage('Integration Tests on Staging') {
             steps {
                 script {
-                    echo 'Running integration tests on staging'
+                    echo 'Running integration tests on staging environment'
+                    echo 'Use katalon to test in staging environment'
                 }
             }
         }
@@ -53,7 +61,8 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 script {
-                    echo 'Deploying to production'
+                    echo 'Deploying to production environment'
+                    echo 'Deploy to Kubernetes production enviornment'
                 }
             }
         }
