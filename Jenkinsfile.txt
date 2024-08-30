@@ -66,6 +66,8 @@ pipeline {
                 script {
                     echo 'Deploying to staging environment '
                     echo 'Deploying to staging environment'
+                                        echo 'Deploying to staging environment'
+
                     echo 'Deploy to Kubernetes staging environment'
                 }
             }
